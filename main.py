@@ -1,13 +1,17 @@
-from services.gemini_service import GeminiService
+from views.menu import pedir_receita
+from controllers.receita_controller import ReceitaController
 
 
 def main():
 
-    service = GeminiService()
+    pedido = pedir_receita()
 
-    resposta = service.gerar_receita("Lasanha de frango")
+    controller = ReceitaController()
 
-    print(resposta)
+    receita = controller.criar_receita(pedido)
+
+    print("\nReceita gerada:\n")
+    print(receita.conteudo)
 
 
 if __name__ == "__main__":
